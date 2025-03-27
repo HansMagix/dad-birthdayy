@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Dad!</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000; /* Black background */
+      color: #fff; /* White text for contrast */
+      line-height: 1.6;
+      padding: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #1c5980;
+    }
+    
+    /* Header styling */
+    header {
+      text-align: center;
+      padding: 50px 0;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 3.5em;
+      text-transform: uppercase;
+    }
+    header p {
+      font-size: 1.4em;
+    }
+    
+    /* Navigation styling */
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav a {
+      margin: 0 15px;
+      font-size: 1.2em;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav a:hover {
+      color: #1c5980;
+      text-shadow: 0 0 5px rgba(41, 128, 185, 0.7);
+    }
+    
+    /* Main content styling */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #1e1e1e; /* Dark gray for contrast */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+    main section {
+      margin-bottom: 40px;
+    }
+    main h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #2980b9;
+      text-transform: uppercase;
+    }
+    main p {
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+    
+    /* Slideshow Styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+    }
+    .slide {
+      display: none;
+    }
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Navigation Buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 10px;
+      margin-top: -22px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Footer styling */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      border-radius: 5px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .slideshow-container { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday, Dad!</h1>
+    <p>Celebrating a true legend</p>
+  </header>
+  <nav>
+    <a href="#about">About Dad</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#wishes">Birthday Wishes</a>
+  </nav>
+  <main>
+    <section id="about">
+      <h2>About Dad</h2>
+      <p>Dad, you are our rock and inspiration. Your wisdom, strength, and kindness have shaped us in countless ways. Today, we celebrate you and all the love you've given us.</p>
+    </section>
+    <section id="gallery">
+      <h2>Photo Gallery</h2>
+      <div class="slideshow-container">
+        <div class="slide fade">
+          <img src="https://via.placeholder.com/700x400.png?text=Photo+1" alt="Photo 1">
+        </div>
+        <div class="slide fade">
+          <img src="https://via.placeholder.com/700x400.png?text=Photo+2" alt="Photo 2">
+        </div>
+        <div class="slide fade">
+          <img src="https://via.placeholder.com/700x400.png?text=Photo+3" alt="Photo 3">
+        </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      </div>
+    </section>
+    <section id="wishes">
+      <h2>Birthday Wishes</h2>
+      <p>May this special day be filled with laughter, love, and cherished memories. Wishing you health, happiness, and an amazing year ahead. Happy Birthday, Dad!</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Happy Birthday, Dad! All rights reserved.</p>
+  </footer>
+  <script>
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+    function changeSlide(n) {
+      let slides = document.getElementsByClassName("slide");
+      slides[slideIndex - 1].style.display = "none";
+      slideIndex += n;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      if (slideIndex < 1) { slideIndex = slides.length; }
+      slides[slideIndex - 1].style.display = "block";
+    }
+    document.addEventListener("DOMContentLoaded", showSlides);
+  </script>
+</body>
+</html>
